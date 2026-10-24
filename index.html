@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alisson Barber Shop | Barcelona</title>
+<style>
+:root {
+  --gold: #d1a653;
+  --black: #090909;
+  --panel: #151515;
+  --text: #f5f2eb;
+  --muted: #b9b5ac;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+.notice {
+  text-align: center;
+  background: #211a0d;
+  color: #e9d19b;
+  padding: 8px;
+  font-size: 11px;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(8,8,8,.96);
+  border-bottom: 1px solid #302719;
+}
+nav {
+  max-width: 1100px;
+  margin: auto;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.logo { font-size: 24px; font-weight: 900; letter-spacing: 2px; }
+.logo span {
+  display: block;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+.navlinks { display: flex; gap: 22px; font-size: 12px; text-transform: uppercase; }
+.navlinks a:hover { color: var(--gold); }
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #171109;
+  padding: 12px 18px;
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn.outline { color: white; background: transparent; }
+.container { max-width: 1100px; margin: auto; padding: 0 22px; }
+.hero {
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 78% 40%, #57432a 0%, #292116 23%,
+    #12110f 48%, #080808 75%);
+  border-bottom: 1px solid #3a2c19;
+}
+.hero::after {
+  content: "✂";
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%) rotate(-18deg);
+  font-size: clamp(180px, 30vw, 360px);
+  color: #d1a653;
+  opacity: .12;
+}
+.hero-content { position: relative; z-index: 1; max-width: 620px; padding: 70px 0; }
+.eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: clamp(48px, 8vw, 88px);
+  line-height: .98;
+  letter-spacing: -3px;
+  margin: 18px 0;
+}
+h1 span {
+  display: block;
+  color: var(--gold);
+  font-size: .62em;
+  font-style: italic;
+  letter-spacing: 0;
+  margin-top: 12px;
+}
+.hero p { max-width: 470px; color: #dedbd4; font-size: 17px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 28px 0; }
+.perks { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12px; }
+.perks span::before { content: "✦ "; color: var(--gold); }
+section { padding: 72px 0; }
+.section-title { margin-bottom: 30px; }
+.section-title h2, .about h2, .contact h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.15;
+  margin: 10px 0;
+}
+.section-title p, .about p, .contact p { color: var(--muted); }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.card {
+  padding: 25px;
+  background: linear-gradient(145deg, #191919, #0e0e0e);
+  border: 1px solid #392e1d;
+  border-radius: 5px;
+}
+.card .number { color: var(--gold); font-size: 12px; letter-spacing: 2px; }
+.card h3 { margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: 14px; }
+.about { background: #101010; border-block: 1px solid #302719; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; align-items: center; }
+.visual {
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 25px;
+  border: 1px solid #6b5027;
+  background: radial-gradient(circle, #594323, #21190f 45%, #0b0b0b 75%);
+}
+.visual strong { font-size: clamp(30px, 5vw, 52px); line-height: 1.1; }
+.visual span { display: block; color: var(--gold); letter-spacing: 4px; margin-top: 12px; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.contact-box { padding: 24px; background: var(--panel); border: 1px solid #392e1d; }
+.contact-box p { color: var(--muted); }
+footer { padding: 25px 22px; color: #8d8980; font-size: 12px; border-top: 1px solid #302719; }
+.footer-inner { max-width: 1100px; margin: auto; }
+@media(max-width: 760px) {
+  .navlinks { display: none; }
+  .hero { min-height: 500px; }
+  .hero::after { right: -12%; opacity: .08; }
+  .cards, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  section { padding: 52px 0; }
+  .container { padding: 0 18px; }
+}
+</style>
+</head>
+<body>
+
+<div class="notice">
+  DEMOSTRACIÓN DE DISEÑO NO OFICIAL · Información pendiente de confirmar
+</div>
+
+<header>
+  <nav>
+    <a class="logo" href="#inicio">ALISSON<span>BARBER SHOP</span></a>
+    <div class="navlinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a class="btn" href="#contacto">Pedir cita</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Barcelona · Estilo y precisión</div>
+      <h1>ALISSON<span>BARBER SHOP</span></h1>
+      <p>Un buen corte cambia cómo te ves. Un buen servicio, cómo te sientes. Descubre una propuesta de barbería con estilo propio.</p>
+      <div class="actions">
+        <a class="btn" href="#contacto">Consultar cita ↗</a>
+        <a class="btn outline" href="#servicios">Ver servicios</a>
+      </div>
+      <div class="perks">
+        <span>Cortes actuales</span>
+        <span>Atención al detalle</span>
+        <span>Estilo personal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="container">
+    <div class="section-title">
+      <div class="eyebrow">Lo que hacemos</div>
+      <h2>Tu estilo, a tu manera.</h2>
+      <p>Servicios de ejemplo. La lista y los precios reales se confirmarán con la barbería.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="number">01 / CORTE</div>
+        <h3>Corte de cabello</h3>
+        <p>Un acabado adaptado al estilo que buscas.</p>
+      </article>
+      <article class="card">
+        <div class="number">02 / BARBA</div>
+        <h3>Arreglo de barba</h3>
+        <p>Una propuesta para cuidar y definir tu estilo.</p>
+      </article>
+      <article class="card">
+        <div class="number">03 / COMBO</div>
+        <h3>Corte + barba</h3>
+        <p>Una opción completa para renovar tu look.</p>
+      </article>
+    </div>
+    <p style="font-size:12px;color:#aaa">
+      Estos servicios son ilustrativos, no una lista oficial.
+    </p>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="container about-grid">
+    <div>
+      <div class="eyebrow">Sobre la barbería</div>
+      <h2>Más que un corte.<br><span style="color:var(--gold)">Una experiencia.</span></h2>
+      <p>Un espacio para cuidar los detalles, encontrar tu estilo y salir con confianza. Este texto es provisional y puede sustituirse por la historia real del negocio.</p>
+      <a class="btn outline" href="#contacto">Conócenos</a>
+    </div>
+    <div class="visual">
+      <div><strong>YOUR STYLE.<br>YOUR STORY.</strong><span>ALISSON BARBER SHOP</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">Hablemos</div>
+      <h2>¿Listo para tu próximo corte?</h2>
+      <p>El botón de reservas se puede conectar al sistema real de citas de la barbería cuando tengamos el enlace correcto.</p>
+      <a class="btn" href="https://www.instagram.com/alissonbarbershopbcn/" target="_blank" rel="noopener noreferrer">Ver Instagram ↗</a>
+    </div>
+    <div class="contact-box">
+      <h3>Información</h3>
+      <p>📍 Dirección: por confirmar</p>
+      <p>🕒 Horarios: por confirmar</p>
+      <p>📱 Reservas: enlace por confirmar</p>
+      <p style="font-size:12px">No se han inventado horarios, precios ni datos de contacto.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    © 2026 Alisson Barber Shop · Concepto visual no oficial · Pendiente de aprobación
+  </div>
+</footer>
+</body>
+</html>
